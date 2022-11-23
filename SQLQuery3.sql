@@ -1,12 +1,12 @@
-select * from Hang;
-select * from SanPham;
+--y4
+select * from Customer where City like N'Hanoi';
+--y5
+ select * from CustomerAccount where CustomerId in 
+(select CustomerId from Customer where Name like N'Cristiano Ronaldo');
 
-select * from Hang order by Tenhang desc;
-select * from DSSanPham order by Gia desc;
-select MaHang,Diachi ,Dienthoai from Hang where Tenhang like 'Asus' ;
-select * from DSSanPham where Soluong <11;
-select tenSP,Mota,Donvi,Gia,Soluong from  DSSanPham,Hang where Tenhang like 'Asus' ;
+select * from CustomerAccount where CustomerId in 
+(select CustomerId from Customer where Phone like '889456124');
 
-select count(*) as SoHang from Hang ;
-select count(*) as SoluongSanPham from DSSanPham ;
-select sum(Soluong) as Tongsoluong from DSSanPham;
+select * from CustomerAccount where CustomerId in 
+(select CustomerId from Customer where Email like N'ronadol@gmail.com');
+

@@ -1,24 +1,25 @@
-create table Hang(
-	MaHang varchar(25) primary key,
-	Tenhang varchar(25) not null,
-	Diachi nvarchar(255) not null,
-	Dienthoai varchar(15) 
+create table Customer(
+  CustomerId int primary key ,
+  Name nvarchar(50) not null,
+  City nvarchar(50) not null,
+  Country nvarchar(50) not null,
+  Phone nvarchar(15) not null,
+  Email nvarchar(50) not null,
 );
 
-create table DSSanPham(
-	TenSP nvarchar(50) not null,
-	Mota ntext,
-	Donvi nvarchar(20) not null,
-	Gia decimal(12,4) not null check(Gia >=0),
-	Soluong int not null,
-	id int primary key identity(1,1)
+create table CustomerAccount(
+  AccountNumber char(9) primary key ,
+  CustomerId int foreign key references Customer(CustomerId),
+  Balnance money,
+  MinAccount money not null
 );
-
-create table Hang_SanPham(
-	ma varchar(25) not null foreign key references Hang(MaHang),
-	idSP int not null foreign key references DSSanPham(id)
+create table CustomerTransaction(
+  TransactionId int primary key,
+  AccountNumber char(9) not null foreign key references CustomerAccount(AccountNumber),
+  TransactionDate smalldatetime not null,
+  Amount money not null,
+  DepositorWithdraw bit
 );
-
-drop table Hang_SanPham;
-drop table DSSanPham;
-drop table Hang;
+drop table Customer;
+drop table CustomerAccount;
+drop table CustomerTransaction

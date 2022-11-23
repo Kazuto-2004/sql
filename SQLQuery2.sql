@@ -1,18 +1,14 @@
-﻿insert into Hang(MaHang,Tenhang,Diachi,Dienthoai)
-         values('123','Asus','USA','983232');
+﻿insert into Customer(CustomerId ,Name,City,Country,Phone,Email)
+values('123890',N'Cristiano Ronaldo',N'Funchal',N'Bồ Đào Nha',N'789456123',N'ronadol@gmail.com'),
+       ('123891',N'Hà Hữu Hoàng',N'Hanoi',N'Viet Nam',N'889456124',N'hahoang@gmail.com');
+select * from Customer;
 
-select * from Hang;
+insert into CustomerAccount(AccountNumber,CustomerId,Balnance,MinAccount)
+values('70006','123890','900000','800000'),
+      ('80006','123891','800000','700000');
+select * from CustomerAccount;
 
-insert into DSSanPham(TenSP,Mota,Donvi,Gia,Soluong)
-         values(N'Máy Tính T450',N'Máy nhập cũ',N'Chiếc','1000','10'),
-			   (N'Điện thoại Nokia 5670',N'Điện thoại đang hot',N'Chiếc','200','200'),
-			   (N'Máy in 450',N'Máy in đang loại bình',N'Chiếc','100','10');
-
-select * from DSSanPham;
-
-insert into Hang_SanPham(Ma,idSP)
-	values('123','1'),
-		  ('123','2'),
-	      ('123','3');
-
-select * from Hang_SanPham;
+insert into CustomerTransaction(TransactionId,AccountNumber,TransactionDate, Amount, DepositorWithdraw)
+values('12345','70006','2022/1/10','20000','1'),
+      ('12346','80006','2022/2/10','30000','1');
+select * from CustomerTransaction;
